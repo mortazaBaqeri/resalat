@@ -7,6 +7,7 @@ export const Calendar: Block = {
     {
       name: 'events',
       type: 'array',
+      localized: true,
       label: 'Events',
       labels: {
         singular: 'Event',
@@ -16,11 +17,13 @@ export const Calendar: Block = {
         {
           name: 'title',
           type: 'text',
+          localized: true,
           required: true,
           label: 'Event Title',
         },
         {
           name: 'description',
+          localized: true,
           type: 'textarea',
           label: 'Event Description',
         },
