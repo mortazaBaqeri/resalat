@@ -22,6 +22,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '24.x'
+      
+      - name: Debug Secret (Safe)
+        env:
+          DB_URI: ${{ secrets.DATABASE_URI }}
+        run: |
+          echo "Checking if DB_URI is empty..."
+          if [ -z "$DB_URI" ]; then
+            echo "RESULT: DATABASE_URI is EMPTY in the runner!"
+            exit 1
+          else
+            echo "RESULT: DATABASE_URI is found. Length is ${#DB_URI} characters."
+          fi
 
       - name: npm install, build, and test
         env:
