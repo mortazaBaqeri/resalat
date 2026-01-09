@@ -23,6 +23,12 @@ jobs:
       - name: npm install
         run: npm install
 
+      - name: Debug Secret (Safe)
+        env:
+          DB_URI: ${{ secrets.DATABASE_URI }}
+        run: |
+          echo "$DB_URI" 
+          
       - name: npm build
         run: |
           echo "DATABASE_URI=${{ secrets.DATABASE_URI }}" > .env
