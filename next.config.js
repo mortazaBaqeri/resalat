@@ -1,7 +1,6 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
 import redirects from './redirects.js'
-import { output } from 'next-sitemap.config.cjs'
 
 const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -21,9 +20,7 @@ const nextConfig = {
       }),
     ],
   },
-  output: {
-    output: 'standalone'
-  },
+  output: 'standalone',
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
